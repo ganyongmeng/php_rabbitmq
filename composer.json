@@ -1,0 +1,33 @@
+{
+  "name": "ganyongmeng/php_rabbitmq",
+  "description": "php rabbitmq",
+  "keywords": [
+    "php",
+    "rabbitmq"
+  ],
+  "homepage": "https://github.com/ganyongmeng/php_rabbitmq",
+  "type": "php rabbitmq",
+  "license": "MIT",
+  "support": {
+    "source": "https://github.com/ganyongmeng/php_rabbitmq"
+  },
+  "authors": [
+    {
+      "name": "Devin",
+      "email": "ganyongmeng@qq.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0.0"
+   
+  },
+  "autoload": {
+    "psr-4": {
+      "terry\\": ""
+    }
+  },
+  "config": {
+    "process-timeout": 1800
+  }
+}
