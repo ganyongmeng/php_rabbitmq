@@ -24,8 +24,11 @@
   },
   "autoload": {
     "psr-4": {
-      "terry\\": ""
+      "php_rabbitmq\\": "src"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {"php_rabbitmq\\": "demo"}
   },
   "config": {
     "process-timeout": 1800
