@@ -6,7 +6,7 @@
     "rabbitmq"
   ],
   "homepage": "https://github.com/ganyongmeng/php_rabbitmq",
-  "type": "php rabbitmq",
+  "type": "php-rabbitmq",
   "license": "MIT",
   "support": {
     "source": "https://github.com/ganyongmeng/php_rabbitmq"
