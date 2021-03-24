@@ -47,17 +47,18 @@ class RabbitmqConnection implements ConnectionInterface
 
     /**
      * Connection constructor.
+     * RabbitmqConnection constructor.
      * @param $conn
-     * @throws AMQPConnectionException
+     * @throws \AMQPConnectionException
      */
     private function __construct($conn)
     {
         //创建连接和channel
-        $conn = new AMQPConnection($conn);
+        $conn = new \AMQPConnection($conn);
         if(!$conn->connect()) {
             die("Cannot connect to the broker!\n");
         }
-        self::$_conn = new AMQPChannel($conn);
+        self::$_conn = new \AMQPChannel($conn);
         self::$amp = $conn;
     }
 
@@ -81,14 +82,12 @@ class RabbitmqConnection implements ConnectionInterface
      * @param $exchangeName
      * @param $queueName
      * @return mixed
-     * @throws AMQPChannelException
-     * @throws AMQPConnectionException
-     * @throws AMQPExchangeException
-     * @throws AMQPQueueException
+     * @throws \AMQPConnectionException
+     * @throws \AMQPExchangeException
      */
     public function setExchange($exchangeName,$queueName){
         //创建交换机
-        $ex = new AMQPExchange(self::$_conn);
+        $ex = new \AMQPExchange(self::$_conn);
         self::$ex = $ex;
         $ex->setName($exchangeName);
 
@@ -103,13 +102,13 @@ class RabbitmqConnection implements ConnectionInterface
      * @param $queueName
      * @param $exchangeName
      * @return mixed
-     * @throws AMQPChannelException
-     * @throws AMQPConnectionException
-     * @throws AMQPQueueException
+     * @throws \AMQPChannelException
+     * @throws \AMQPConnectionException
+     * @throws \AMQPQueueException
      */
     private static function setQueue($queueName,$exchangeName){
         //  创建队列
-        $q = new AMQPQueue(self::$_conn);
+        $q = new \AMQPQueue(self::$_conn);
         $q->setName($queueName);
         $q->setFlags(AMQP_DURABLE);
         $q->declareQueue();
@@ -121,17 +120,6 @@ class RabbitmqConnection implements ConnectionInterface
         return(self::$_instance);
     }
 
-    /*
- * 消费者
- * $fun_name = array($classobj,$function) or function name string
- * $autoack 是否自动应答
- *
- * function processMessage($envelope, $queue) {
-        $msg = $envelope->getBody();
-        echo $msg."\n"; //处理消息
-        $queue->ack($envelope->getDeliveryTag());//手动应答
-    }
- */
 
     /**
      * @param $func
@@ -144,8 +132,6 @@ class RabbitmqConnection implements ConnectionInterface
             if ($autoack) {
                 if(!self::$q->consume($func, AMQP_AUTOACK)){
 //                    self::$q->ack($envelope->getDeliveryTag());
-                    //失败之后会默认进入 noack 队列。下次重新开启会再次调用，目前还不清楚 回调配置应该这里做一个失败反馈
-                    //todu
                 }
             }
             self::$q->consume($func);
