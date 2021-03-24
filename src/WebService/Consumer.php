@@ -23,7 +23,10 @@ class Consumer implements ProviderInterface
      */
     public function process($msg = '')
     {
-        $this->conn->run($this->receive('receive'));
+    }
+
+    public function run($func, $autoack = True) {
+        $this->conn->run($func, $autoack);
     }
 
     /**
