@@ -2,6 +2,8 @@
 /**
  * publisher
  */
+require_once __DIR__ . '/../vendor/autoload.php';
+use WebService\Publisher;
 $config = [
     'RabbitMq' => [
         // Rabbitmq 服务地址
@@ -15,5 +17,5 @@ $config = [
         'vhost'=>'/'
     ]
 ];
-$publisher = new \Rabbitmq\WebService\Publisher($config, 'exchange_1', 'queue_1');
+$publisher = new Publisher($config, 'exchange_1', 'queue_1');
 $publisher->process(json_encode(['data'=>'message1', 'hello'=>'world']));

@@ -1,8 +1,8 @@
 <?php
 
-namespace Rabbitmq\WebService;
+namespace WebService;
 
-use Rabbitmq\ProviderInterface;
+use ProviderInterface;
 
 /**
  * Class Publisher

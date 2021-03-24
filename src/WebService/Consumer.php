@@ -1,7 +1,7 @@
 <?php
 
-namespace Rabbitmq\WebService;
-use Rabbitmq\ProviderInterface;
+namespace WebService;
+use ProviderInterface;
 
 /**
  * Class consumer

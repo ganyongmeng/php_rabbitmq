@@ -24,11 +24,11 @@
   },
   "autoload": {
     "psr-4": {
-      "php_rabbitmq\\": "src"
+      "ganyongmeng\\php_rabbitmq\\": "src"
     }
   },
   "autoload-dev": {
-    "psr-4": {"php_rabbitmq\\": "demo"}
+    "psr-4": {"ganyongmeng\\php_rabbitmq\\": "demo"}
   },
   "config": {
     "process-timeout": 1800

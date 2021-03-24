@@ -2,7 +2,8 @@
 /**
  * consumer
  */
-require __DIR__.'/../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+use WebService\Consumer;
 $config = [
     'RabbitMq' => [
         // Rabbitmq 服务地址
@@ -16,5 +17,5 @@ $config = [
         'vhost'=>'/'
     ]
 ];
-$consumer = new \Rabbitmq\WebService\Consumer($config, 'exchange_1', 'queue_1');
+$consumer = new Consumer($config, 'exchange_1', 'queue_1');
 $consumer->process();
