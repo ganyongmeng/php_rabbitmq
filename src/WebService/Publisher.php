@@ -3,6 +3,7 @@
 namespace ganyongmeng\php_rabbitmq\WebService;
 
 use ganyongmeng\php_rabbitmq\ProviderInterface;
+use ganyongmeng\php_rabbitmq\Connection\RabbitmqConnection;
 
 /**
  * Class Publisher
@@ -15,7 +16,7 @@ class Publisher implements ProviderInterface
     protected $conn;
     public function __construct($config, $exchange, $queue)
     {
-        $this->conn = \RabbitmqConnection::getInstance($config)->listen($exchange, $queue);
+        $this->conn = RabbitmqConnection::getInstance($config)->listen($exchange, $queue);
     }
 
     /**

@@ -1,5 +1,6 @@
 <?php
-
+namespace ganyongmeng\php_rabbitmq\Connection;
+use ganyongmeng\php_rabbitmq\Connection\ConnectionInterface;
 /**
  * Class RabbitmqConnection
  * @Author:Devin
