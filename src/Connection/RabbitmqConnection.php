@@ -93,7 +93,7 @@ class RabbitmqConnection implements ConnectionInterface
 
         $ex->setType(AMQP_EX_TYPE_DIRECT); //direct类型
         $ex->setFlags(AMQP_DURABLE); //持久化
-        $ex->declare();
+        $ex->declareExchange();
         return self::setQueue($queueName,$exchangeName);
     }
 
