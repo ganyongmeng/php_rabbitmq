@@ -33,7 +33,7 @@ class Publisher implements ProviderInterface
      */
     public function send($msg)
     {
-        $this->conn->publish($msg);
+        $this->conn->pushlish($msg);
     }
 
 
