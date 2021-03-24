@@ -1,8 +1,8 @@
 <?php
 
-namespace WebService;
+namespace ganyongmeng\php_rabbitmq\WebService;
 
-use ProviderInterface;
+use ganyongmeng\php_rabbitmq\ProviderInterface;
 
 /**
  * Class Publisher

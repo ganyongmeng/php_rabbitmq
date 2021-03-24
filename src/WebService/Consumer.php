@@ -1,8 +1,7 @@
 <?php
 
-namespace WebService;
-use ProviderInterface;
-
+namespace ganyongmeng\php_rabbitmq\WebService;
+use ganyongmeng\php_rabbitmq\ProviderInterface;
 /**
  * Class consumer
  * @package Rabbitmq\WebService

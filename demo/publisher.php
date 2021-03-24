@@ -3,7 +3,7 @@
  * publisher
  */
 require_once __DIR__ . '/../vendor/autoload.php';
-use WebService\Publisher;
+use ganyongmeng\php_rabbitmq\WebService\Consumer;
 $config = [
     'RabbitMq' => [
         // Rabbitmq 服务地址
