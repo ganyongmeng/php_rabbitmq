@@ -138,6 +138,16 @@ class RabbitmqConnection implements ConnectionInterface
         }
     }
 
+    /**
+     * @param $func
+     * @param bool $autoack
+     * @return mixed
+     */
+    public function consume($func, $autoack = True)
+    {
+        return self::$q->consume($func, $autoack);
+    }
+
 
     private static function closeConn(){
         self::$amp->disconnect();
