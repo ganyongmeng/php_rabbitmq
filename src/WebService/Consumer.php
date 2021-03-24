@@ -23,7 +23,7 @@ class Consumer implements ProviderInterface
      */
     public function process($msg = '')
     {
-        $this->conn ->consume("receive");
+        $this->conn->consume("receive");
     }
 
     /**
@@ -36,7 +36,7 @@ class Consumer implements ProviderInterface
         //echo消息内容
         echo $envelope->getBody()."\n";
         //显式确认，队列收到消费者显式确认后，会删除该消息
-        $this->conn ->ack($envelope->getDeliveryTag());
+        $this->conn->ack($envelope->getDeliveryTag());
     }
 
 
