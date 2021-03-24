@@ -1,4 +1,7 @@
 <?php
+/**
+ * consumer
+ */
 require __DIR__.'/../../vendor/autoload.php';
 $config = [
     'RabbitMq' => [

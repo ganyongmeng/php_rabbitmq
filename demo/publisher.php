@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * publisher
+ */
 $config = [
     'RabbitMq' => [
         // Rabbitmq 服务地址
