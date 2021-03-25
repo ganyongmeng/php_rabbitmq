@@ -147,7 +147,7 @@ class RabbitmqConnection implements ConnectionInterface
      * @param $msg
      */
     public function pushlish($msg){
-        if (self::$ex->publish(date('H:i:s') . "user" . "register", self::$route)) {
+        if (self::$ex->publish($msg, self::$route)) {
             //write file
             echo $msg;
         }
