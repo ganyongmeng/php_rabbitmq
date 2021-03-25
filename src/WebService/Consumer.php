@@ -6,7 +6,7 @@ use ganyongmeng\php_rabbitmq\Connection\RabbitmqConnection;
 /**
  * Class consumer
  * @package Rabbitmq\WebService
- * @Author:Devin
+ * @Author:ganyongmeng
  * @Date: 2021/3/23   17:22
  */
 class Consumer implements ProviderInterface

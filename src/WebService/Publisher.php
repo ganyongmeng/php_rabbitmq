@@ -8,7 +8,7 @@ use ganyongmeng\php_rabbitmq\Connection\RabbitmqConnection;
 /**
  * Class Publisher
  * @package Rabbitmq\WebService
- * @Author:Devin
+ * @Author:ganyongmeng
  * @Date: 2021/3/23   17:22
  */
 class Publisher implements ProviderInterface

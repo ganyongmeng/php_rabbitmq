@@ -3,7 +3,7 @@ namespace ganyongmeng\php_rabbitmq\Connection;
 use ganyongmeng\php_rabbitmq\Connection\ConnectionInterface;
 /**
  * Class RabbitmqConnection
- * @Author:Devin
+ * @Author:ganyongmeng
  * @Date: 2021/3/23   17:30
  */
 class RabbitmqConnection implements ConnectionInterface
