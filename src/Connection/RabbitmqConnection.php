@@ -17,6 +17,8 @@ class RabbitmqConnection implements ConnectionInterface
     static private $ex ;
     static private $queue;
     static private $config;
+    static private $exchange_type = AMQP_EX_TYPE_DIRECT;
+    static private $durable = AMQP_DURABLE;
 
 
     public function config()
@@ -31,13 +33,31 @@ class RabbitmqConnection implements ConnectionInterface
                 'login' => 'guest',
                 // Rabbitmq 密码
                 'password' => 'guest',
-                'vhost'=>'/'
+                'vhost'=>'/',
+                //路由
+                'route'=>'',
+                'exchange_type'=>AMQP_EX_TYPE_DIRECT,
+                'durable'=>AMQP_DURABLE,
             ]
         ];
     }
 
-
+    /**
+     * @param array $config
+     * @return RabbitmqConnection
+     * @throws \AMQPConnectionException
+     */
     public static function getInstance($config = []){
+        if (!empty($config['route'])) {
+            self::$route = $config['route'];
+        }
+        if (!empty($config['exchange_type'])) {
+            self::$exchange_type = $config['exchange_type'];
+        }
+
+        if (!empty($config['durable'])) {
+            self::$durable = $config['durable'];
+        }
         if (!(self::$_instance instanceof self)) {
             self::$_instance = new self($config);
             return self::$_instance;
@@ -91,8 +111,8 @@ class RabbitmqConnection implements ConnectionInterface
         self::$ex = $ex;
         $ex->setName($exchangeName);
 
-        $ex->setType(AMQP_EX_TYPE_DIRECT); //direct类型
-        $ex->setFlags(AMQP_DURABLE); //持久化
+        $ex->setType(self::$exchange_type); //direct类型
+        $ex->setFlags(self::$durable); //持久化
         $ex->declareExchange();
         return self::setQueue($queueName,$exchangeName);
     }
@@ -110,7 +130,7 @@ class RabbitmqConnection implements ConnectionInterface
         //  创建队列
         $q = new \AMQPQueue(self::$_conn);
         $q->setName($queueName);
-        $q->setFlags(AMQP_DURABLE);
+        $q->setFlags(self::$durable);
         $q->declareQueue();
 
         // 用于绑定队列和交换机
