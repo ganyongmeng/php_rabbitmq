@@ -165,13 +165,15 @@ class RabbitmqConnection implements ConnectionInterface
 
     /**
      * @param $msg
+     * @return bool
      */
     public function pushlish($msg){
         if (self::$ex->publish($msg, self::$route)) {
             //write file
-            echo $msg;
+            //echo $msg;
+            return true;
         }
-
+        return false;
     }
 
     /**

@@ -29,11 +29,13 @@ class Publisher implements ProviderInterface
     }
 
     /**
+     * Send
      * @param $msg
+     * @return mixed
      */
     public function send($msg)
     {
-        $this->conn->pushlish($msg);
+        return $this->conn->pushlish($msg);
     }
 
 
