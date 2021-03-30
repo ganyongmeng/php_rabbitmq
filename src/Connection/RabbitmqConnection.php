@@ -153,8 +153,9 @@ class RabbitmqConnection implements ConnectionInterface
                 if(!self::$q->consume($func, AMQP_AUTOACK)){
                     self::$q->ack($func->getDeliveryTag());
                 }
+            } else {
+                self::$q->consume($func);
             }
-            self::$q->consume($func);
         }
     }
 
