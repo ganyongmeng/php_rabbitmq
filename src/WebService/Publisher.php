@@ -25,18 +25,9 @@ class Publisher implements ProviderInterface
      */
     public function process($msg = '')
     {
-        return $this->send($msg);
-    }
-
-    /**
-     * Send
-     * @param $msg
-     * @return mixed
-     */
-    public function send($msg)
-    {
         return $this->conn->pushlish($msg);
     }
+    
 
 
 
