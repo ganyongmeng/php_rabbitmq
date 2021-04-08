@@ -172,6 +172,7 @@ class RabbitmqConnection implements ConnectionInterface
         if (self::$ex->publish($msg, self::$route)) {
             //write file
             //echo $msg;
+            self::closeConn();
             return true;
         }
         return false;

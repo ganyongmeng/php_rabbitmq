@@ -27,7 +27,7 @@ class Publisher implements ProviderInterface
     {
         return $this->conn->pushlish($msg);
     }
-    
+
 
 
 
